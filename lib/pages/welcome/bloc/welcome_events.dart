@@ -1,1 +1,1 @@
-
+class WelcomeEvent {}

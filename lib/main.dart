@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_fblock/app_blocs.dart';
 import 'package:shop_fblock/app_events.dart';
 import 'package:shop_fblock/app_states.dart';
+import 'package:shop_fblock/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:shop_fblock/pages/welcome/welcome.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AppBlocs(),
+      create: (context) => WelcomeBloc(),
       child: ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,
