@@ -39,21 +39,21 @@ class _WelcomeState extends State<Welcome> {
                           'next',
                           "First See Learning",
                           "Forget about a for of paper all knoledge in one learning!",
-                          'image path'),
+                          'assets/images/reading.png'),
                       _page(
                           2,
                           context,
                           'next',
                           "Connect With Everyone",
                           "Always keep in touch with your tutor % friend. Let's get connected",
-                          'image path'),
+                          'assets/images/boy.png'),
                       _page(
                           3,
                           context,
                           'get started',
                           "Always Fascinated Learning",
                           "Anywhere, anytime. The time is at your discretion so study whenever you want.",
-                          'image path'),
+                          'assets/images/man.png'),
                     ],
                   ),
                   Positioned(
@@ -93,11 +93,12 @@ class _WelcomeState extends State<Welcome> {
         SizedBox(
           width: 345.w,
           height: 345.w,
-          child: const Text(
-            'Image one',
-            style: TextStyle(color: Colors.black),
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.cover,
           ),
         ),
+        // ignore: avoid_unnecessary_containers
         Container(
           child: Text(
             title,
