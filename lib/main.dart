@@ -1,9 +1,12 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_fblock/app_blocs.dart';
 import 'package:shop_fblock/app_events.dart';
 import 'package:shop_fblock/app_states.dart';
+import 'package:shop_fblock/pages/sign_in/sign_in.dart';
 import 'package:shop_fblock/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:shop_fblock/pages/welcome/welcome.dart';
 
@@ -17,8 +20,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => WelcomeBloc(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => WelcomeBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AppBlocs(),
+        ),
+      ],
       child: ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,
@@ -28,13 +38,26 @@ class MyApp extends StatelessWidget {
               debugShowCheckedModeBanner: false,
               title: 'Flutter Demo',
               theme: ThemeData(
+                appBarTheme: AppBarTheme(
+                  elevation: 0,
+                  backgroundColor: Colors.white,
+                ),
                 colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
                 useMaterial3: true,
               ),
-              home: const Welcome(),
+              routes: {
+                '/': (context) => const Welcome(),
+                'myHomePage': (context) => const MyHomePage(),
+                'signIn': (context) => const SignIn(),
+              },
             );
           }),
     );
+
+    // BlocProvider(
+    //   create: (context) => WelcomeBloc(),
+    //   child:
+    // );
   }
 }
 
@@ -68,12 +91,14 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FloatingActionButton(
+            heroTag: 'heroTag1',
             onPressed: () =>
                 BlocProvider.of<AppBlocs>(context).add(Increment()),
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
           FloatingActionButton(
+            heroTag: 'heroTag2',
             onPressed: () =>
                 BlocProvider.of<AppBlocs>(context).add(Decrement()),
             tooltip: 'Decrement',
