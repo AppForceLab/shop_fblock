@@ -27,7 +27,7 @@ class _SignInState extends State<SignIn> {
                         child:
                             reusableText('Or use you email acount to login')),
                     Container(
-                      padding: EdgeInsets.only(left: 25.w),
+                      padding: EdgeInsets.only(left: 25.w, right: 25.w),
                       margin: EdgeInsets.only(
                         top: 66.h,
                       ),
@@ -35,9 +35,22 @@ class _SignInState extends State<SignIn> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             reusableText('Email'),
-                            buildTextField('Email', 'Email'),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            buildTextField(
+                                'Enter your email adsress', 'email', 'user'),
+                            reusableText('Password'),
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            buildTextField('Enter your password adsress',
+                                'password', 'lock'),
                           ]),
                     ),
+                    forgotPassword(),
+                    buildLogInAndRegButton('Log in', 'login'),
+                    buildLogInAndRegButton('Register', 'register'),
                   ]),
             )),
       ),
