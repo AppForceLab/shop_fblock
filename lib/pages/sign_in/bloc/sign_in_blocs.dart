@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_fblock/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:shop_fblock/pages/sign_in/bloc/sign_in_states.dart';
 
-class SignInbloc extends Bloc<SignInEvent, SignInState> {
-  SignInbloc() : super(SignInState()) {
+class SignInBloc extends Bloc<SignInEvent, SignInState> {
+  SignInBloc() : super(SignInState()) {
     on<EmailEvent>(_emailEvent);
 
     on<PasswordEvent>(_passwordEvent);
