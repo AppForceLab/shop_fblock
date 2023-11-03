@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shop_fblock/common/values/colors.dart';
 import 'package:shop_fblock/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:shop_fblock/pages/welcome/bloc/welcome_events.dart';
 import 'package:shop_fblock/pages/welcome/bloc/welcome_states.dart';
@@ -64,8 +65,8 @@ class _WelcomeState extends State<Welcome> {
                     child: DotsIndicator(
                         position: state.page.toDouble(),
                         decorator: DotsDecorator(
-                          color: Colors.grey,
-                          activeColor: Colors.blue,
+                          color: AppColors.primaryThirdElementText,
+                          activeColor: AppColors.primaryElement,
                           size: const Size.square(8.0),
                           activeSize: const Size(18.0, 8.0),
                           activeShape: RoundedRectangleBorder(
@@ -106,7 +107,7 @@ class _WelcomeState extends State<Welcome> {
           child: Text(
             title,
             style: TextStyle(
-                color: Colors.black,
+                color: AppColors.primaryText,
                 fontSize: 24.sp,
                 fontWeight: FontWeight.normal),
           ),
@@ -117,7 +118,7 @@ class _WelcomeState extends State<Welcome> {
           child: Text(
             subTtitle,
             style: TextStyle(
-                color: Colors.black.withOpacity(0.5),
+                color: AppColors.primarySecondaryElementText,
                 fontSize: 14.sp,
                 fontWeight: FontWeight.normal),
           ),
@@ -138,7 +139,7 @@ class _WelcomeState extends State<Welcome> {
             width: 325.w,
             height: 50.h,
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: AppColors.primaryElement,
               borderRadius: BorderRadius.all(
                 Radius.circular(15.w),
               ),

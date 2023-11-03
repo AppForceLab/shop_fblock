@@ -29,7 +29,7 @@ class _SignInState extends State<SignIn> {
                     Container(
                       padding: EdgeInsets.only(left: 25.w, right: 25.w),
                       margin: EdgeInsets.only(
-                        top: 66.h,
+                        top: 36.h,
                       ),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
