@@ -39,6 +39,9 @@ dependencies:
   dots_indicator: ^2.1.1
   intl: ^0.18.1
   cloud_firestore: ^4.12.1
+  firebase_auth: ^4.12.1
+  rename: ^3.0.1
+  firebase_core: ^2.21.0
 
 dev_dependencies:
   flutter_test:

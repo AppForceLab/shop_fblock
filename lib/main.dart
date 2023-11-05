@@ -9,8 +9,14 @@ import 'package:shop_fblock/app_states.dart';
 import 'package:shop_fblock/pages/sign_in/sign_in.dart';
 import 'package:shop_fblock/pages/welcome/bloc/welcome_blocs.dart';
 import 'package:shop_fblock/pages/welcome/welcome.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
