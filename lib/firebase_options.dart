@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,20 +43,38 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyB-4_FjcPW8gqs_q5rfWfgTHGkrlkJ4opc',
+    appId: '1:235191014627:web:fec47adc3e3657b5b7a1d6',
+    messagingSenderId: '235191014627',
+    projectId: 'fbshop-pro',
+    authDomain: 'fbshop-pro.firebaseapp.com',
+    storageBucket: 'fbshop-pro.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyARl9RQegqw0S7xhD_44iWfntCZwBV8B4Q',
-    appId: '1:827678356888:android:9ecac452952709f4c8e7ed',
-    messagingSenderId: '827678356888',
-    projectId: 'myprobloc-app',
-    storageBucket: 'myprobloc-app.appspot.com',
+    apiKey: 'AIzaSyBIc3N9_U7uE3528LVoX16hv_36s-4myyc',
+    appId: '1:235191014627:android:2c1c88e6c7678094b7a1d6',
+    messagingSenderId: '235191014627',
+    projectId: 'fbshop-pro',
+    storageBucket: 'fbshop-pro.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAbbjK_zZfPALCRTLSZx2kW1vHQWonPt20',
-    appId: '1:827678356888:ios:f4a116ad7edbdb39c8e7ed',
-    messagingSenderId: '827678356888',
-    projectId: 'myprobloc-app',
-    storageBucket: 'myprobloc-app.appspot.com',
+    apiKey: 'AIzaSyCXFk7J1urpzEGLJ97-QAwPcSK7FhF7zYM',
+    appId: '1:235191014627:ios:b4b26aa9a5afbb62b7a1d6',
+    messagingSenderId: '235191014627',
+    projectId: 'fbshop-pro',
+    storageBucket: 'fbshop-pro.appspot.com',
     iosBundleId: 'pro.smartapps.shopbloc',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyCXFk7J1urpzEGLJ97-QAwPcSK7FhF7zYM',
+    appId: '1:235191014627:ios:8791d29382f2a3cfb7a1d6',
+    messagingSenderId: '235191014627',
+    projectId: 'fbshop-pro',
+    storageBucket: 'fbshop-pro.appspot.com',
+    iosBundleId: 'com.example.shopFblock.RunnerTests',
   );
 }

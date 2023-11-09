@@ -6,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_fblock/app_blocs.dart';
 import 'package:shop_fblock/app_events.dart';
 import 'package:shop_fblock/app_states.dart';
+import 'package:shop_fblock/pages/block_providers.dart';
+
 import 'package:shop_fblock/pages/sign_in/sign_in.dart';
-import 'package:shop_fblock/pages/welcome/bloc/welcome_blocs.dart';
+
 import 'package:shop_fblock/pages/welcome/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -17,6 +19,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   runApp(const MyApp());
 }
 
@@ -27,14 +30,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => WelcomeBloc(),
-        ),
-        BlocProvider(
-          create: (context) => AppBlocs(),
-        ),
-      ],
+      providers: AppBlocProviders.allBlockProvisers,
       child: ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,
