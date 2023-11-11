@@ -5,7 +5,7 @@ import 'package:shop_fblock/pages/sign_in/bloc/sign_in_blocs.dart';
 import 'package:shop_fblock/pages/sign_in/bloc/sign_in_events.dart';
 import 'package:shop_fblock/pages/sign_in/bloc/sign_in_states.dart';
 import 'package:shop_fblock/pages/sign_in/sign_in_controller.dart';
-import 'package:shop_fblock/pages/sign_in/widgets/sign_in_widget.dart';
+import '../common_widgets.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
           child: SafeArea(
             child: Scaffold(
                 backgroundColor: Colors.white,
-                appBar: buildAppBar(),
+                appBar: buildAppBar(title: 'Log In'),
                 body: SingleChildScrollView(
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +73,9 @@ class _SignInState extends State<SignIn> {
                           SignInController(context: context)
                               .handlerSignIn("email");
                         }),
-                        buildLogInAndRegButton('Register', 'register', () {}),
+                        buildLogInAndRegButton('Register', 'register', () {
+                          Navigator.of(context).pushNamed('register');
+                        }),
                       ]),
                 )),
           ),
