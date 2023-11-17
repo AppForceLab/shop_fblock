@@ -18,7 +18,7 @@ class SignInController {
         final state = context.read<SignInBloc>().state;
         String emailAddress = state.email;
         String password = state.password;
-        print('${emailAddress} ${password}');
+        // print('$emailAddress $password');
         if (emailAddress.isEmpty) {
           toastInfo(msg: 'Fill email adress');
           return;
@@ -31,6 +31,9 @@ class SignInController {
           final credential = await FirebaseAuth.instance
               .signInWithEmailAndPassword(
                   email: emailAddress, password: password);
+
+          print('OK $credential');
+
           if (credential.user == null) {
             toastInfo(msg: "User don't exist");
           }
@@ -44,6 +47,7 @@ class SignInController {
             toastInfo(msg: "No such user");
           }
         } on FirebaseAuthException catch (e) {
+          // ignore: avoid_print
           print(e);
           if (e.code == 'user-not-found') {
             toastInfo(msg: "User-not-found");
@@ -51,14 +55,13 @@ class SignInController {
             toastInfo(msg: "Wrong password");
           } else if (e.code == 'invalid-email') {
             toastInfo(msg: "Invalid-email");
+          } else if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+            toastInfo(msg: "INVALID_LOGIN_CREDENTIALS");
           }
-          // else if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
-          //   toastInfo(msg: "INVALID_LOGIN_CREDENTIALS");
-          // }
         }
       }
     } catch (err) {
-      print('ERROR HERE -> ${err}');
+      // print('ERROR HERE -> $err');
     }
   }
 }

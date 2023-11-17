@@ -6,11 +6,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shop_fblock/app_blocs.dart';
 import 'package:shop_fblock/app_events.dart';
 import 'package:shop_fblock/app_states.dart';
+import 'package:shop_fblock/pages/aplication/aplication_page.dart';
 import 'package:shop_fblock/pages/block_providers.dart';
-
 import 'package:shop_fblock/pages/sign_in/sign_in.dart';
-
-import 'package:shop_fblock/pages/welcome/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'pages/register/register.dart';
@@ -49,8 +47,8 @@ class MyApp extends StatelessWidget {
                 useMaterial3: true,
               ),
               routes: {
-                '/': (context) => const Welcome(),
-                'myHomePage': (context) => const MyHomePage(),
+                '/': (context) => const AplicationPage(),
+                // 'myHomePage': (context) => const MyHomePage(),
                 'signIn': (context) => const SignIn(),
                 'register': (context) => const Register(),
               },
